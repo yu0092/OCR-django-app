@@ -26,15 +26,6 @@
                 <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
                     <a href="/" class="mr-5 cursor-pointer hover:text-gray-900"><i class="fi fi-rr-home"></i> 首頁</a>
                 </nav>
-                <a href="https://github.com/ASACHIT/OCR-django-app.git" target="_blank">
-                    <button
-                        class="inline-flex items-center py-1 px-3 rounded text-base mt-4 md:mt-0 bg-gray-100 duration-300 hover:shadow-lg">Github
-                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                            stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
-                            <path d="M5 12h14M12 5l7 7-7 7"></path>
-                        </svg>
-                    </button>
-                </a>
             </div>
 
 
@@ -65,8 +56,7 @@
         <section class="text-gray-600">
             <div class="container px-5 py-24 mx-auto">
                 <div class="flex flex-col text-center w-full mb-12">
-                    <h1 class="sm:text-7xl text-2xl font-medium mb-4 text-gray-900">Text Extractor</h1>
-                    <p class="lg:w-2/3 mx-auto leading-relaxed text-xl">Extract or Scan text from images</p>
+                    <h1 class="sm:text-7xl text-2xl font-medium mb-4 text-gray-900">病例資料表辨識</h1>
                 </div>
 
 
@@ -80,13 +70,6 @@
                             {% csrf_token %}
                             <input name="imagefile" re accept="image/*" type="file" id="formFile"
                                 style="display: none;">
-                            <button class="custom-btn shadow-md " disabled>
-                                <select name="language" id="languages" class="bg-transparent">
-                                    <option value="eng" selected>English</option>
-                                    <option value="nep">Nepali</option>
-                                    <option value="hin">Hindi</option>
-                                </select>
-                            </button>
                             <button type="submit" class="custom-btn shadow-md bg-white">Scan <i
                                     class="fi fi-rr-search"></i></button>
                         </form>
@@ -107,9 +90,6 @@
                 {% if ocr %}
                 <div class=" ease-out bg-white text-slate-800 rounded-2xl hover:shadow-lg p-6 mt-3 duration-300 w-auto">
                     <p id="ocrtext" class="text-lg mt-2  mb-8 text-center ">{{ ocr }}</p>
-                    <button id="copybtn" onclick="copy()" class="button">Copy Text
-                        <i class="fi fi-rr-duplicate"></i>
-                    </button>
                 </div>
                 {% endif %}
                 <!-- OCR text will be shown -->
@@ -141,51 +121,7 @@
 
                 </script>
                 <!-- script to change svg change  -->
-                <div class="flex flex-col flex-wrap lg:py-6 -mb-10 lg:w-1/2 lg:pl-12 lg:text-left text-center">
-                    <div class="flex flex-col mb-10 lg:items-start items-center">
-                        <div
-                            class="w-12 h-12 inline-flex items-center justify-center rounded-full bg-slate-300 text-slate-800 mb-5">
-                            <i class="fi fi-rr-running icons"></i>
-                        </div>
-                        <div class="flex-grow">
-                            <h2 class="text-gray-900 text-lg title-font font-medium mb-3">Fast and Easy</h2>
-                            <p class="leading-relaxed text-base">Tesseract tests the text lines to determine whether
-                                they are fixed pitch. Where it finds fixed pitch text, Tesseract chops the words into
-                                characters using the pitch, and disables the chopper and associator on these words for
-                                the word recognition step.</p>
-                            <a class="mt-3 text-slate-800 inline-flex items-center">Learn More
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                                    <path d="M5 12h14M12 5l7 7-7 7"></path>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="flex flex-col mb-10 lg:items-start items-center">
-                        <div
-                            class="w-12 h-12 inline-flex items-center justify-center rounded-full bg-slate-300 text-slate-800 mb-5">
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
-                                <circle cx="6" cy="6" r="3"></circle>
-                                <circle cx="6" cy="18" r="3"></circle>
-                                <path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"></path>
-                            </svg>
-                        </div>
-                        <div class="flex-grow">
-                            <h2 class="text-gray-900 text-lg title-font font-medium mb-3">Accuracy</h2>
-                            <p class="leading-relaxed text-base">Easily crop the text from images and copy it to
-                                clipboard, And its Results are Highly Accurate</p>
-                            <a class="mt-3 text-slate-800 inline-flex items-center">Learn More
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                                    <path d="M5 12h14M12 5l7 7-7 7"></path>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
+              
         </section>
     </body>
 
