@@ -66,10 +66,16 @@
                             class="custom-btn shadow-md mb-2">上傳檔案
                              <i class="fi fi-rr-upload"></i>
                         </button>
+                        
                         <form method="post" enctype="multipart/form-data" class="flex justify-center">
                             {% csrf_token %}
                             <input name="imagefile" re accept="image/*" type="file" id="formFile"
                                 style="display: none;">
+                              <button class="custom-btn shadow-md " disabled>
+                                <select name="language" id="languages" class="bg-transparent">
+                                    <option value="eng" selected>English</option>
+                                </select>
+                            </button>
                             <button type="submit" class="custom-btn shadow-md bg-white">辨識 <i
                                     class="fi fi-rr-search"></i></button>
                         </form>
