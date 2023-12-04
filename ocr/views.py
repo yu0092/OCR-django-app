@@ -23,10 +23,16 @@ def homepage(request):
                 request, messages.ERROR, "No image selected or uploaded"
             )
             return render(request, "home.html")
-        lang = request.POST["language"]
+        
+        # 直接使用同时支持英文和简体中文的语言模型
+        lang_model = "eng+chi_tra"
+        
         img = np.array(Image.open(image))
-        text = pytesseract.image_to_string(img, lang=lang)
-        # return text to html
-        return render(request, "home.html", {"ocr": text, "image": image_base64})
+        
+        # 使用设置的语言模型进行文本识别
+        text = pytesseract.image_to_string(img, lang=lang_model)
+        
+        # 返回文本和图像到 HTML
+        return render(request, "home.html", {"ocr": text, "image": image_base64, "language": "中文"})
 
     return render(request, "home.html")
