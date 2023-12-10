@@ -23,7 +23,6 @@ def homepage(request):
                 request, messages.ERROR, "No image selected or uploaded"
             )
             return render(request, "home.html")
-        lang = request.POST["language"]
         img = np.array(Image.open(image))
         text = pytesseract.image_to_string(img, lang=lang)
         # return text to html
