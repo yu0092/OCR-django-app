@@ -1,17 +1,3 @@
-import base64
-
-import numpy as np
-import pytesseract
-from django.contrib import messages
-from django.shortcuts import render
-from PIL import Image
-
-# you have to install tesseract module too from here - https://github.com/UB-Mannheim/tesseract/wiki
-pytesseract.pytesseract.tesseract_cmd = (
-    r"C:\Program Files\Tesseract-OCR\tesseract.exe"  # Path to tesseract.exe
-)
-
-
 def homepage(request):
     if request.method == "POST":
         try:
@@ -23,10 +9,15 @@ def homepage(request):
                 request, messages.ERROR, "No image selected or uploaded"
             )
             return render(request, "home.html")
+
+        # 固定为中文和英文
+        lang = "chi_tra+eng"
+        
         img = np.array(Image.open(image))
-         text = pytesseract.image_to_string(img, lang="chi_tra+eng")
+        text = pytesseract.image_to_string(img, lang=lang)
 
         # return text to html
         return render(request, "home.html", {"ocr": text, "image": image_base64})
 
     return render(request, "home.html")
+
